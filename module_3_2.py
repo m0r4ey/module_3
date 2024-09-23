@@ -1,16 +1,16 @@
 # Способы вызова функции.
 
 def send_email (message, recipient, sender = "university.help@gmail.com"):
-    domens = [".com", ".ru", ".net"]
+    domens = (".com", ".ru", ".net")
     recipient_domen = False
     sender_domen = False
-    for i in range(len(domens)):
-        if domens[i] in recipient:
-            if "@" in recipient:
-                recipient_domen = True
-        if domens[i] in sender:
+    if recipient.endswith(domens):
+        if "@" in recipient:
+            recipient_domen = True
+    if sender.endswith(domens):
             if "@" in sender:
                 sender_domen = True
+
     if recipient_domen == sender_domen == True:
         if recipient == sender:
             print("Нельзя отправить письмо самому себе!")
